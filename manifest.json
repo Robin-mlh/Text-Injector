@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Text Injector",
+    "version": "1.0",
+    "description": "Inject pre-saved text into ChatGPT input.",
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "storage",
+        "contextMenus",
+        "clipboardWrite"
+    ],
+    "host_permissions": ["<all_urls>"]
+}

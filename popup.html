@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Injector</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <textarea autofocus id="TextInput" cols="70 " rows="5" title="New macro or category text"></textarea>
+    <div id="actionContainer">
+        <button id="addMacro" title="Create a macro in the current category">
+            <img src="newmacro.png" alt="New macro">
+        </button>
+        <button id="addCategoryButton" title="Create a category">
+            <img src="newcat.png" alt="New category">
+        </button>
+        <button id="racineCat" title="Back to root">Text Injector /</button>    
+        <div id="catStatus"></div>
+    </div>
+    <div id="macroContainer"></div>
+    <script src="popup.js"></script>
+</body>
+</html>

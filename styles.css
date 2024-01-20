@@ -1,0 +1,65 @@
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 15px;
+}
+
+#actionContainer {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+#actionContainer button {
+  background-color: gray;
+  height: 50px;
+}
+
+#actionContainer button:active {
+  background-color: rgb(70, 70, 70);
+}
+
+#catStatus {
+  margin-top: 20px;
+  margin-left: 12px;
+  font-size: 30px;
+  font-weight: bold;
+  color: gray;
+}
+
+#cat {
+  background-color: gray;
+}
+
+#TextInput:focus {
+  outline: none;
+}
+
+#TextInput::placeholder {
+  color: #ccc;
+}
+
+textarea {
+  resize: none;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 17px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
+#racineCat {
+  color: black;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 25px;
+  font-weight: bold;
+}
