@@ -17,7 +17,9 @@ function inject(text) {
 
     var txt = document.querySelectorAll("input, textarea")
     for (var i=0;i<txt.length;i++) {
-        txt[i].value = txt[i].value + text
+        if (txt[i].type !== 'file') {
+            txt[i].value = txt[i].value + text
+        }
     }
 }
 
