@@ -15,10 +15,10 @@ function doInCurrentTab(tabCallback) {
 function inject(text) {
     // Function that injects text into detected inputs.
 
-    var txt = document.querySelectorAll("input, textarea")
+    var txt = document.querySelectorAll("input, textarea, p")
     for (var i=0;i<txt.length;i++) {
         if (txt[i].type !== 'file') {
-            txt[i].value = txt[i].value + text
+            txt[i].textContent = txt[i].textContent + text
         }
     }
 }
