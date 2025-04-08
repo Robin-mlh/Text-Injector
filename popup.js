@@ -164,7 +164,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         contexts: ["all"],
                         onclick: function() {
                             // Execute the inject(text) function when the menu is clicked.
-                            console.log(macroDict[cat][i])
                             chrome.scripting.executeScript({
                                 target: { tabId: activeTabId },
                                 func: inject,
@@ -221,20 +220,23 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Delete button",
             contexts: ["all"],
             onclick: function() {  // Delete the selected button.
-                var bouton = document.activeElement
-                // Delete the selected category.
-                if (bouton.id == "cat" && bouton.title !== defaultCat) {
-                    delete macroDict[bouton.title]
-                    bouton.remove()
-                // Delete the selected macro.
-                } else if (bouton.id == "macro") {
-                    var iboutoSupr = macroDict[window.value].indexOf(bouton.title)
-                    if (iboutoSupr !== -1) {
-                        macroDict[window.value].splice(iboutoSupr, 1)
+                chrome.storage.local.get(['macroDict'], function(result) {
+                    var macroDict = JSON.parse(result.macroDict)
+                    var bouton = document.activeElement
+                    // Delete the selected category.
+                    if (bouton.id == "cat" && bouton.title !== defaultCat) {
+                        delete macroDict[bouton.title]
+                        bouton.remove()
+                    // Delete the selected macro.
+                    } else if (bouton.id == "macro") {
+                        var iboutoSupr = macroDict[window.value].indexOf(bouton.title)
+                        if (iboutoSupr !== -1) {
+                            macroDict[window.value].splice(iboutoSupr, 1)
+                        }
+                        bouton.remove()
                     }
-                    bouton.remove()
-                }
-                chrome.storage.local.set({'macroDict': JSON.stringify(macroDict)})
+                    chrome.storage.local.set({'macroDict': JSON.stringify(macroDict)})
+                })
             }
         })
         chrome.contextMenus.create({
